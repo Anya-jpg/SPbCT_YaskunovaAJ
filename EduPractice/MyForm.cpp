@@ -1,7 +1,7 @@
 #include "MyForm.h"
 #include <Windows.h>
 using namespace EduPractice;
-
+[STAThread]
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
 	Application::EnableVisualStyles();
