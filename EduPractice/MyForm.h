@@ -143,6 +143,7 @@ namespace EduPractice {
 			this->SortFileButton->TabIndex = 5;
 			this->SortFileButton->Text = L"Отсортировать файл";
 			this->SortFileButton->UseVisualStyleBackColor = true;
+			this->SortFileButton->Click += gcnew System::EventHandler(this, &MyForm::SortFileButton_Click);
 			// 
 			// ClearFilesButton
 			// 
@@ -283,5 +284,8 @@ private: System::Void File1ShowButton_Click(System::Object^ sender, System::Even
 	file1.close();
 }
 
+private: System::Void SortFileButton_Click(System::Object^ sender, System::EventArgs^ e) {
+
+}
 };
 }
