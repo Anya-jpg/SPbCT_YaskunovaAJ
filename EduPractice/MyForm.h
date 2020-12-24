@@ -13,7 +13,6 @@
 #include <iterator>
 #include <chrono>
 #include <iomanip>
-
 namespace EduPractice {
 
 	using namespace System;
@@ -285,129 +284,81 @@ namespace EduPractice {
 			file1 >> letter[i];
 			v1.push_back(letter[i]);
 		}
+		sort(v1.begin(), v1.end());
+		v1[0] = '*';
+		writeToFile2(v1);
 		for (int i = 10; i < 20; i++)
 		{
 			file1 >> letter[i];
 			v2.push_back(letter[i]);
 		}
+		sort(v2.begin(), v2.end());
+		v2[1] = '*';
+		writeToFile2(v2);
 		for (int i = 20; i < 30; i++)
 		{
 			file1 >> letter[i];
 			v3.push_back(letter[i]);
 		}
+		sort(v3.begin(), v3.end());
+		v3[2] = '*';
+		writeToFile2(v3);
 		for (int i = 30; i < 40; i++)
 		{
 			file1 >> letter[i];
 			v4.push_back(letter[i]);
 		}
+		sort(v4.begin(), v4.end());
+		v4[3] = '*';
+		writeToFile2(v4);
 		for (int i = 40; i < 50; i++)
 		{
 			file1 >> letter[i];
 			v5.push_back(letter[i]);
 		}
+		sort(v5.begin(), v5.end());
+		v5[4] = '*';
+		writeToFile2(v5);
 		for (int i = 50; i < 60; i++)
 		{
 			file1 >> letter[i];
 			v6.push_back(letter[i]);
 		}
+		sort(v6.begin(), v6.end());
+		v6[5] = '*';
+		writeToFile2(v6);
 		for (int i = 60; i < 70; i++)
 		{
 			file1 >> letter[i];
 			v7.push_back(letter[i]);
 		}
+		sort(v7.begin(), v7.end());
+		v7[6] = '*';
+		writeToFile2(v7);
 		for (int i = 70; i < 80; i++)
 		{
 			file1 >> letter[i];
 			v8.push_back(letter[i]);
 		}
+		sort(v8.begin(), v8.end());
+		v8[7] = '*';
+		writeToFile2(v8);
 		for (int i = 80; i < 90; i++)
 		{
 			file1 >> letter[i];
 			v9.push_back(letter[i]);
 		}
+		sort(v9.begin(), v9.end());
+		v9[8] = '*';
+		writeToFile2(v9);
 		for (int i = 90; i < 100; i++)
 		{
 			file1 >> letter[i];
 			v10.push_back(letter[i]);
 		}
-		sort(v1.begin(), v1.end());
-		sort(v2.begin(), v2.end());
-		sort(v3.begin(), v3.end());
-		sort(v4.begin(), v4.end());
-		sort(v5.begin(), v5.end());
-		sort(v6.begin(), v6.end());
-		sort(v7.begin(), v7.end());
-		sort(v8.begin(), v8.end());
-		sort(v9.begin(), v9.end());
 		sort(v10.begin(), v10.end());
-		v1[0] = '*';
-		v2[1] = '*';
-		v3[2] = '*';
-		v4[3] = '*';
-		v5[4] = '*';
-		v6[5] = '*';
-		v7[6] = '*';
-		v8[7] = '*';
-		v9[8] = '*';
 		v10[9] = '*';
-		for (int i = 0; i < 10; i++)
-		{
-			file2 << v1[i];
-		}
-		file2 << endl;
-		for (int i = 0; i < 10; i++)
-		{
-			file2 << v2[i];
-
-		}
-		file2 << endl;
-		for (int i = 0; i < 10; i++)
-		{
-			file2 << v3[i];
-
-		}
-		file2 << endl;
-		for (int i = 0; i < 10; i++)
-		{
-			file2 << v4[i];
-
-		}
-		file2 << endl;
-		for (int i = 0; i < 10; i++)
-		{
-			file2 << v5[i];
-
-		}
-		file2 << endl;
-		for (int i = 0; i < 10; i++)
-		{
-			file2 << v6[i];
-
-		}
-		file2 << endl;
-		for (int i = 0; i < 10; i++)
-		{
-			file2 << v7[i];
-
-		}
-		file2 << endl;
-		for (int i = 0; i < 10; i++)
-		{
-			file2 << v8[i];
-
-		}
-		file2 << endl;
-		for (int i = 0; i < 10; i++)
-		{
-			file2 << v9[i];
-
-		}
-		file2 << endl;
-		for (int i = 0; i < 10; i++)
-		{
-			file2 << v10[i];
-
-		}
+		writeToFile2(v10);
 		file2 << endl;
 		file1.close();
 		file2.close();

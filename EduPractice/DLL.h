@@ -10,5 +10,5 @@
 #endif
 
 
-extern "C" EDUCATIONALPRACTICEDLL_API void writeTo(const std::vector<char> &data);
+extern "C" EDUCATIONALPRACTICEDLL_API void writeToFile2(const std::vector<char> &data);
 //void run(std::vector<char> v1, std::ifstream f, char values[]);
