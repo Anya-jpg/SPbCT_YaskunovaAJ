@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "DLL.h"
+#include "DLL.h" // подключение созданной DLL-библиотеки
 #include <iostream>
 #include <vector>
 #include <string>
@@ -24,6 +24,7 @@ namespace EduPractice {
 	using namespace System::Drawing;
 	using namespace std;
 	using namespace System::IO;
+	using namespace System::Threading;
 	/// <summary>
 	/// Сводка для MyForm
 	/// </summary>
@@ -34,7 +35,7 @@ namespace EduPractice {
 		{
 			InitializeComponent();
 			DateTime datetime = DateTime::Now;
-			this->label4->Text = "Дата: " + datetime.ToString();
+			this->label4->Text = "Дата: " + datetime.ToString(); // запись времени и даты в label 4 на форму
 			//
 			//TODO: добавьте код конструктора
 			//
@@ -62,6 +63,8 @@ namespace EduPractice {
 	private: System::Windows::Forms::GroupBox^ groupBox1;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label4;
+	private: Thread^ t1;
+	private: Thread^ t2; // создание потоков
 	private:
 		/// <summary>
 		/// Обязательная переменная конструктора.
@@ -91,7 +94,7 @@ namespace EduPractice {
 			// textBox1
 			// 
 			this->textBox1->BackColor = System::Drawing::Color::LemonChiffon;
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->textBox1->Location = System::Drawing::Point(342, 147);
 			this->textBox1->Multiline = true;
@@ -139,12 +142,13 @@ namespace EduPractice {
 			// textBox2
 			// 
 			this->textBox2->BackColor = System::Drawing::Color::LemonChiffon;
-			this->textBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->textBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->textBox2->Location = System::Drawing::Point(342, 337);
 			this->textBox2->Multiline = true;
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->ReadOnly = true;
+			this->textBox2->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
 			this->textBox2->Size = System::Drawing::Size(378, 254);
 			this->textBox2->TabIndex = 4;
 			// 
@@ -227,7 +231,7 @@ namespace EduPractice {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox1);
 			this->Name = L"MyForm";
-			this->Text = L"MyForm";
+			this->Text = L"Учебная практика_ЯскуноваАнна_гр590";
 			this->groupBox1->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -235,43 +239,31 @@ namespace EduPractice {
 		}
 #pragma endregion
 
-	private: System::Void File1CreateButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void File1CreateButton_Click(System::Object^ sender, System::EventArgs^ e) { // кнопка для заполнения файла 100 буквами, если это не было сделано вручную
 		srand(time(NULL));
 		char letters[100];
 		fstream file1; // создание объекта класса fstream 
 		file1.open("1.txt"); // связывание объекта класса fstream с файлом, который будет использоваться для операций ввода-вывода
 		for (int i = 0; i < 100; i++)
 		{
-			letters[i] = (rand() % ('z' - 'a' + 1)) + 'a';
-			file1 << letters[i];
+			letters[i] = (rand() % ('z' - 'a' + 1)) + 'a'; //присваиваем букве рандомное значение из алфавита
+			file1 << letters[i]; // добавляем букву в файл
 		}
-		file1 << endl;
-		file1.close();
+		file1.close(); //закрываем файл
 	}
-
-	private: System::Void File1ShowButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	public: void T1() { //функция для передачи 1-му потоку
 		char letter[100];
-		vector<char> v1;
-		vector<char> v2;
-		vector<char> v3;
-		vector<char> v4;
-		vector<char> v5;
-		vector<char> v6;
-		vector<char> v7;
-		vector<char> v8;
-		vector<char> v9;
-		vector<char> v10;
-		fstream file1, file2; // создание объекта класса fstream 
+		ifstream file1;
+		std::vector<char> v1, v2, v3, v4, v5; //инициализация векторов
 		file1.open("1.txt");
-		file2.open("2.txt");
 		for (int i = 0; i < 10; i++)
 		{
-			file1 >> letter[i];
-			v1.push_back(letter[i]);
+			file1 >> letter[i]; //присваиваем переменной списка значение буквы из файла
+			v1.push_back(letter[i]); //добавляем эту букву в вектор
 		}
-		sort(v1.begin(), v1.end());
-		v1[0] = '*';
-		writeToFile2(v1);
+		sort(v1.begin(), v1.end()); // сортировка вектора по алфавиту
+		v1[0] = '*'; // замена в 1-ом векторе 1-ой буквы на звездочку
+		writeToFile2(v1); //обращение к функции из созданной DLL-библиотеки, которая записывает отсортированный вектор во 2-файл (2.txt)
 		for (int i = 10; i < 20; i++)
 		{
 			file1 >> letter[i];
@@ -304,6 +296,13 @@ namespace EduPractice {
 		sort(v5.begin(), v5.end());
 		v5[4] = '*';
 		writeToFile2(v5);
+		file1.close();
+	}
+	public: void T2() { //функция для передачи 2-му потоку
+		char letter[100];
+		ifstream file1;
+		std::vector<char> v6, v7, v8, v9, v10;
+		file1.open("1.txt");
 		for (int i = 50; i < 60; i++)
 		{
 			file1 >> letter[i];
@@ -345,7 +344,9 @@ namespace EduPractice {
 		v10[9] = '*';
 		writeToFile2(v10);
 		file1.close();
-		file2.close();
+	}
+
+	private: System::Void File1ShowButton_Click(System::Object^ sender, System::EventArgs^ e) { //кнопка для отображения содержимого 1-го файла (1.txt) в textbox1
 		String^ file1Path = "1.txt"; // создаем переменную для хранения пути к файлу
 		try
 		{
@@ -359,7 +360,13 @@ namespace EduPractice {
 		}
 	}
 
-	private: System::Void SortFileButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void SortFileButton_Click(System::Object^ sender, System::EventArgs^ e) { //кнопка для отображения содержимого 2-го отсортированного файла (2.txt) в textbox2
+		t1 = gcnew Thread(gcnew ThreadStart(this, &MyForm::T1)); //создаем поток, выполняющий функцию T1
+		t2 = gcnew Thread(gcnew ThreadStart(this, &MyForm::T2));
+		t1->Start(); // начинаем поток
+		t1->Join(); // функция для блокировки вызывающегося потока до тех пор, пока поток выполнения не завершится
+		t2->Start();
+		t2->Join();
 		String^ file2Path = "2.txt"; // создаем переменную для хранения пути к файлу
 		try
 		{
