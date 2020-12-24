@@ -9,6 +9,4 @@
 #define EDUCATIONALPRACTICEDLL_API __declspec(dllimport)
 #endif
 
-
-extern "C" EDUCATIONALPRACTICEDLL_API void writeToFile2(const std::vector<char> &data);
-//void run(std::vector<char> v1, std::ifstream f, char values[]);
+extern "C" EDUCATIONALPRACTICEDLL_API void writeToFile2(const std::vector<char> &vector);

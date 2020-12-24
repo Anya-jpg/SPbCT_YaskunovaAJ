@@ -1,4 +1,0 @@
-﻿  variant7.cpp
-C:\Users\anya7\source\repos\variant7\variant7.cpp(30,1): warning C4102: a: неиспользованная метка
-C:\Users\anya7\source\repos\variant7\variant7.cpp(20,13): warning C4101: a: неиспользованная локальная переменная
-  variant7.vcxproj -> C:\Users\anya7\source\repos\variant7\Debug\variant7.exe
