@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 fzkcwlfhjfbmicfpcagdvtbronxxpanfgsxuxbkjzujurzxfphsomdbmvzuwattcebszltkgzqznzlllzlsavhgbglwsorwfnbzr
+=======
+residkfgsujhfdkfhkhfkshsdkfhksdfsdggf
+>>>>>>> parent of 18c2fe3... Изменение формы и добавление сортировки (без DLL)

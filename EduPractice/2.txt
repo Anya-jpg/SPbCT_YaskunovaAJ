@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 kmnosuux
 a*fgjkqxxx
@@ -19,3 +20,5 @@ abcels*ttz
 gklllnq*zz
 abgghlls*z
 bfnorrsww*
+=======
+>>>>>>> parent of 18c2fe3... Изменение формы и добавление сортировки (без DLL)
