@@ -1,4 +1,5 @@
 ﻿  MyForm.cpp
-C:\Users\anya7\Documents\GitHub\SPbCT_YaskunovaAJ\EduPractice\MyForm.h(170,21): warning C4101: e: неиспользованная локальная переменная
+C:\Users\anya7\Documents\GitHub\SPbCT_YaskunovaAJ\EduPractice\MyForm.h(189,13): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+C:\Users\anya7\Documents\GitHub\SPbCT_YaskunovaAJ\EduPractice\MyForm.h(215,20): warning C4101: e: неиспользованная локальная переменная
   MyForm.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
   EduPractice.vcxproj -> C:\Users\anya7\Documents\GitHub\SPbCT_YaskunovaAJ\EduPractice\Debug\EduPractice.exe
